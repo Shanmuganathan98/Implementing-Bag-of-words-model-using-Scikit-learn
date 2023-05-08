@@ -11,6 +11,11 @@
         code {
   font-family: monospace;
 }
+        pre{
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body style="background-color:white">
@@ -65,13 +70,23 @@
                     working installation of NumPy and SciPy, the easiest 
                     way to install scikit-learn is using pip             
                 </p>
-                <pre><code>pip install -U scikit-learn</code></pre>
+                <pre><code> $ pip install -U scikit-learn</code></pre>
             </section>
  
             <section class="main-section" id="Libraries">
                 <header>
                     <b>Importing Libraries:</b>
                 </header>
+                <pre><code>import sklearn
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import accuracy_score
+from sklearn.model_selection import cross_val_score
+from sklearn.feature_extraction.text import CountVectorizer</code>
+                </pre>
             </section>
  
             <section class="main-section" id="Bow">
@@ -113,6 +128,13 @@
                     indices of 12 and occurred once in the document. However, the word “in” having indices 8 has 
                     occurred twice in the document. 
                 </p>
+		<pre>
+                <code>
+f_names = vectorizer.get_feature_names()
+print("Number of Features : {}". format(len(f_names)))
+print("Features 1000 to 1050 : \n{}". format(f_names[1000:1050]))
+print("Unique words:\n{}".format(vectorizer.get_feature_names()[:10]))</code>
+		</pre>
             </section>
             
             <section class="main-section" id="SA">
@@ -126,6 +148,13 @@
                     count vectorizer functions on the dataset. Then create Classification models like LogisticRegression,
                     MultinomialNB, and RandomForestClassifier on the dataset. Finally compare the accuracy of these models.  
                 </p>
+		<pre>
+                <code>
+# Code to compute Accuracies of the model
+accuracy_logreg = accuracy_score(y_test, pred_logreg).round(2)
+accuracy_nb = accuracy_score(y_test, pred_nb).round(2)
+accuracy_rf = accuracy_score(y_test, pred_rf).round(2)</code>
+                </pre>
             </section>
             
             <section class="main-section" id="Benefits">
@@ -140,6 +169,19 @@
                         feature selection, model selection, model evaluation, and data visualization. 
                         This makes it easy to carry out end-to-end machine learning workflows using a single library.</li>
                 </ul>
+            </section>
+
+            <section class="main-section" id="Conclusion">
+                <header>
+                    <b>Conclusion:</b>
+                </header>
+                <p>
+                   We have done Bag-of-words feature extraction and applied different classification models to the dataset 
+                   using scikit-learn library and compared their accuracies. We found that Logistic Regression model gave the 
+                   highest accuracy of 88%. We have implemented the scikit-learn module fuctions for model selection, 
+                   preprocessing, feature extraction and evaluation. Overall, scikit-learn is an essential tool for anyone working 
+                   with machine learning in Python, whether they are just getting started or are seasoned experts in the field.
+                </p>
             </section>
             
         </main>
